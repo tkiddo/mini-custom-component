@@ -1,5 +1,6 @@
 const _ = require('./utils')
 
+
 Component({
   properties: {
     prop: {
@@ -8,7 +9,7 @@ Component({
     },
   },
   data: {
-    flag: false,
+		flag: false,
   },
   lifetimes: {
     attached() {

@@ -1,1 +1,5 @@
-<comp></comp>
+<view class='container'>
+	<view></view>
+	<lt-icon iconType="fanhui"></lt-icon>
+</view>
+

@@ -1,2 +1,6 @@
-<view class="index other">{{prop}}-{{flag}}</view>
-<other></other>
+<view class="index other">
+	<view>Icon</view>
+	<icon iconType='fanhui' size='40rpx'></icon>
+</view>
+<!-- <other></other> -->
+
