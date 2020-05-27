@@ -14,6 +14,7 @@ Component({
 		}
 	},
 	methods: {
+		//点击事件
 		handleTap(){
 			const {url,functionType} = this.properties;
 			if(functionType==='default'&&url){
@@ -27,6 +28,7 @@ Component({
 				});
 			}
 		},
+		//自定义事件，用于回调
 		handleCustom(res){
 			this.triggerEvent('custom',res)
 		}
