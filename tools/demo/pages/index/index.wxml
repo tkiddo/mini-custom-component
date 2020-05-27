@@ -1,5 +1,7 @@
 <view class='container'>
-	<view></view>
+	<view>Icon</view>
 	<lt-icon iconType="fanhui"></lt-icon>
+	<lt-icon iconSrc="{{icon}}" size="{{size}}"></lt-icon>
+	<lt-icon iconType="jinggao"></lt-icon>
 </view>
 

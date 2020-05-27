@@ -2,10 +2,10 @@
 Component({
   data: {},
   properties: {
-		src:Object,
+		iconSrc:String,
 		size:{
 			type:String,
-			value:'default'
+			value:'40rpx'
 		},
 		iconType:String,
 		color:{

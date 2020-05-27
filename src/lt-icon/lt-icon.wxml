@@ -1,2 +1,2 @@
-<icon wx:if="{{iconType&&!src}}" class="iconfont icon-{{iconType}}" style="color:{{color}};font-size:{{size}}"></icon>
-<view wx:if="{{!iconType&&src}}" class="icon-img" style="width:{{size}};height:{{size}};background:url(/{{src.default}})"></view>
+<icon wx:if="{{iconType&&!iconSrc}}" class="iconfont icon-{{iconType}}" style="color:{{color}};font-size:{{size}}"></icon>
+<view wx:if="{{!iconType&&iconSrc}}" class="icon-img" style="width:{{size}};height:{{size}};background-image:url({{iconSrc}})"></view>
