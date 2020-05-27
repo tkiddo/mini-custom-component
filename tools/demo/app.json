@@ -1,11 +1,12 @@
 {
   "pages":[
-    "pages/index/index"
+		"pages/index/index",
+		"pages/my/my"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "自定义组件",
     "navigationBarTextStyle":"black"
   }
 }

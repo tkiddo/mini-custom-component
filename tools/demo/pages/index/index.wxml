@@ -1,7 +1,15 @@
 <view class='container'>
-	<view>Icon</view>
+	<view class='title'>Icon：来自库</view>
 	<lt-icon iconType="fanhui"></lt-icon>
-	<lt-icon iconSrc="{{icon}}" size="{{size}}"></lt-icon>
 	<lt-icon iconType="jinggao"></lt-icon>
+	<view class='title'>Icon：来自图片</view>
+	<lt-icon iconSrc="{{icon}}" size="{{size}}"></lt-icon>
+	<view class='title'>功能导航</view>
+	<block wx:for="{{menus}}" wx:key="index">
+		<lt-navigator cls='navi' functionType='{{item.functionType}}' bindcustom="handleCustom" url="{{item.url}}">
+			<lt-icon iconType='{{item.iconType}}' slot='icon' color='{{item.color}}'></lt-icon>
+			<span slot='text'>{{item.text}}</span>
+		</lt-navigator>
+	</block>
 </view>
 

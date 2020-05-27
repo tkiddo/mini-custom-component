@@ -1,0 +1,32 @@
+.container{
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	padding:20rpx;
+	position: relative;
+}
+.f1{
+	flex:1 auto;
+	display: flex;
+	align-items: center;
+	padding:0 10rpx;
+}
+
+.hide-btn{
+	position: absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	background: transparent;
+	border-radius: inherit;
+	border-color: transparent;
+	border:none;
+	outline: transparent;
+	/* z-index: -1; */
+	/* pointer-events: none; */
+}
+/* 去除button默认样式 */
+.hide-btn::after{
+	border:none;
+}

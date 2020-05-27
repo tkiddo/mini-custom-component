@@ -1,0 +1,12 @@
+<view class="container {{cls}}" bindtap = "handleTap">
+	<slot name='icon'></slot>
+	<view class='f1'>
+		<slot name='text'></slot>
+	</view>
+	<lt-icon iconType="xiangyou"></lt-icon>
+	<button wx:if="{{functionType==='getUserInfo'}}" class='hide-btn' open-type='{{functionType}}' bindgetuserinfo='handleCustom'></button>
+	<button wx:if="{{functionType==='getPhoneNumber'}}" class='hide-btn' open-type='{{functionType}}' bindgetphonenumber='handleCustom'></button>
+	<button wx:if="{{functionType==='share'}}" class='hide-btn' open-type='{{functionType}}'></button>
+	<button wx:if="{{functionType==='contact'}}" class='hide-btn' open-type='{{functionType}}' bindcontact='handleCustom'></button>
+	<button wx:if="{{functionType==='openSetting'}}" class='hide-btn' open-type='{{functionType}}' bindopensetting='handleCustom'></button>
+</view>

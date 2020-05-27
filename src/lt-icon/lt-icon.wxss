@@ -14,6 +14,8 @@
   -webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	margin:0 10rpx;
+	display: inline-block;
+
 }
 
 .icon-img{
@@ -23,6 +25,8 @@
 	margin:0 10rpx;
 	display: inline-block;
 }
+
+.icon-test:before{content:"\e601";}
 
 .icon-tuichu:before { content: "\e604"; }
 

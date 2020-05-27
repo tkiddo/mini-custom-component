@@ -1,6 +1,46 @@
 Page({
 	data:{
 		icon:'/assets/icon.png',
-		size:'40rpx'
+		size:'50rpx',
+		menus:[{
+			url:'/pages/my/my',
+			iconType:'jinggao',
+			color:'blue',
+			text:'我的',
+			functionType:'default'
+		},{
+			url:'',
+			iconType:'jinggao',
+			color:'red',
+			text:'获取个人信息',
+			functionType:'getUserInfo'
+		},{
+			url:'',
+			iconType:'jinggao',
+			color:'green',
+			text:'获取电话号码',
+			functionType:'getPhoneNumber'
+		},{
+			url:'',
+			iconType:'jinggao',
+			color:'orange',
+			text:'分享',
+			functionType:'share'
+		},{
+			url:'',
+			iconType:'jinggao',
+			color:'pink',
+			text:'设置',
+			functionType:'openSetting'
+		},{
+			url:'',
+			iconType:'jinggao',
+			color:'purple',
+			text:'客服',
+			functionType:'contact'
+		}]
+	},
+	handleCustom(res){
+		console.log(res.detail)
 	}
 })
