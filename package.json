@@ -2,7 +2,8 @@
   "name": "lt-weapp-components",
   "version": "1.0.1",
   "description": "",
-  "main": "miniprogram_dist/index.js",
+	"main": "miniprogram_dist/index.js",
+	"keywords": ["微信小程序","自定义组件"],
   "scripts": {
     "dev": "gulp dev --develop",
     "watch": "gulp watch --develop --watch",
