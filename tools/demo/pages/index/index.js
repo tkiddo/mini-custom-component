@@ -1,3 +1,4 @@
+const ltUtils = require('../../components/lt-utils/index')
 Page({
 	data:{
 		icon:'/assets/icon.png',
@@ -42,5 +43,17 @@ Page({
 	},
 	handleCustom(res){
 		console.log(res.detail)
+	},
+	handleRequest(){
+		const {httpService} = ltUtils;
+		const request = new httpService('https://www.baidu.com')
+		request.get('/',{a:1}).then(res=>{
+			console.log(res)
+		})
+		request.post('/',{a:1}).then(res=>{
+			console.log(res)
+		}).finally(res=>{
+			console.log('done')
+		})
 	}
 })

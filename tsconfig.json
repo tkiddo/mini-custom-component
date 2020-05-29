@@ -17,7 +17,7 @@
     "node_modules/miniprogram-api-typings/index.d.ts"
   ],
   "include": [
-    "src/**/*.ts"
+    "src/**/*.ts", "src/lt-utils/httpService.js", "src/lt-utils/index.js"
   ],
   "exclude": [
     "node_modules"

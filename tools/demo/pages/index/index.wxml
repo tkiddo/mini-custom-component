@@ -1,7 +1,7 @@
 <view class='container'>
 	<view class='title'>Icon：来自库</view>
 	<lt-icon iconType="fanhui"></lt-icon>
-	<lt-icon iconType="jinggao"></lt-icon>
+	<lt-icon iconType="jinggao" bindtap = "handleRequest"></lt-icon>
 	<view class='title'>Icon：来自图片</view>
 	<lt-icon iconSrc="{{icon}}" size="{{size}}"></lt-icon>
 	<view class='title'>功能导航</view>
