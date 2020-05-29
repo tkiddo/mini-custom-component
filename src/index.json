@@ -1,9 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-		"lt-icon":"./lt-icon/lt-icon"
-  },
-  "componentGenerics": {
-    "genericsTest": true
-  }
-}

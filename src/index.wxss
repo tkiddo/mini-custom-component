@@ -1,7 +1,0 @@
-@import "./common.wxss";
-@import "./reset.wxss";
-
-.index {
-	color: green;
-	padding:40rpx;
-}
