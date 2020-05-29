@@ -68,6 +68,20 @@ class httpService{
 			}
 		})
 	}
+	delete(url,data){
+		return this.request({
+			url,
+			data,
+			method:'DELETE'
+		})
+	}
+	put(url,data){
+		return this.request({
+			url,
+			data,
+			method:'PUT'
+		})
+	}
 }
 
 module.exports = httpService
