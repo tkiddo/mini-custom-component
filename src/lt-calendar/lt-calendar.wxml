@@ -1,0 +1,151 @@
+<!-- components/calendar/calendar.wxml -->
+<wxs module="dateUtil">
+  var isDate = function(date) {
+    return date && date.getMonth;
+  };
+
+  var isLeapYear = function(year) {
+    //传入为时间格式需要处理
+    if (isDate(year)) year = year.getFullYear()
+    if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) return true;
+    return false;
+  };
+
+  var getDaysOfMonth = function(date) {
+    var month = date.getMonth(); //注意此处月份要加1，所以我们要减一
+    var year = date.getFullYear();
+    return [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+  }
+
+  var getBeginDayOfMouth = function(date) {
+    var month = date.getMonth();
+    var year = date.getFullYear();
+    var d = getDate(year, month, 1);
+    return d.getDay();
+  }
+
+  var getDisplayInfo = function(date) {
+
+    if (!isDate(date)) {
+      date = getDate(date)
+    }
+    var year = date.getFullYear();
+
+    var month = date.getMonth();
+    var d = getDate(year, month);
+
+
+    //这个月一共多少天
+    var days = getDaysOfMonth(d);
+
+    //这个月是星期几开始的
+    var beginWeek = getBeginDayOfMouth(d);
+
+    return {
+      year: year,
+      month: month,
+      days: days,
+      beginWeek: beginWeek
+    }
+  };
+
+  //分割月之间的展示
+  var monthClapFn = function(year, month) {
+    month = month + 1;
+    return year + '年' + (month) + '月';
+  };
+
+  var getChangedDate = function(date, m) {
+
+    if (!isDate(date)) {
+      date = getDate(date)
+    }
+    var year = date.getFullYear();
+
+    var month = date.getMonth();
+    var changedMonth = month + m;
+    var yyy = parseInt((month + m) / 12);
+    if (changedMonth > 11) {
+      changedMonth = changedMonth - 12 * yyy;
+    }
+    changedYear = year + yyy;
+
+    return {
+      str_month: monthClapFn(changedYear, changedMonth)
+      date: getDate(changedYear, changedMonth),
+      year: changedYear,
+      month: changedMonth
+    };
+  };
+
+  var isSelected = function(date, year, month, day) {
+    if (!isDate(date)) {
+      date = getDate(date);
+    }
+
+    if (date.getFullYear() == year && date.getMonth() == month && date.getDate() == day) return 'active';
+    return '';
+
+  };
+
+  var formatNum = function(n) {
+    if (n < 10) return '0' + n;
+    return n;
+  };
+
+  var getDayName = function(dayMap, month, day) {
+
+    if (!dayMap) {
+      dayMap = {
+        '0101': '元旦节',
+        '0214': '情人节',
+        '0501': '劳动节',
+        '0601': '儿童节',
+        '0910': '教师节',
+        '1001': '国庆节',
+        '1225': '圣诞节'
+      };
+    }
+
+    var name = formatNum(parseInt(month) + 1) + formatNum(day);
+
+    return dayMap[name] || day;
+  };
+
+  module.exports = {
+		test: function (zzz) {
+			console.log('test', zzz)
+		},
+    getDipalyInfo: getDisplayInfo,
+    getChangedDate: getChangedDate,
+    isSelected: isSelected,
+    getDayName: getDayName
+  }
+</wxs>
+<view class="cm-calendar">
+		<view class="cm-calendar-hd ">
+				<block wx:for="{{weekDayArr}}" wx:key="weekDayKey">
+						<view class="item">{{item}}</view>
+				</block>
+		</view>
+		<block wx:for="{{displayMonthNum}}" wx:for-index="i" wx:key="t">
+				<view class="cm-calendar-bd ">
+						<view class="cm-month ex-class">
+								<view class="prev" bindtap="handlePrev"></view>
+								<text>{{dateUtil.getChangedDate(displayTime, i).str_month }}</text>
+								<view class="next" bindtap="handleNext"></view>
+						</view>
+						<view class="cm-day-list">
+								<block wx:key="tt" wx:for="{{dateUtil.getDipalyInfo(dateUtil.getChangedDate(displayTime, i).date).days + dateUtil.getDipalyInfo(dateUtil.getChangedDate(displayTime, i).date).beginWeek}}" wx:for-index="index">
+										<view wx:if="{{index < dateUtil.getDipalyInfo(dateUtil.getChangedDate(displayTime, i).date).beginWeek }}" class="item "></view>
+										<view bindtap="onCalendarDayTap" wx:else data-year="{{dateUtil.getChangedDate(displayTime, i).year}}" data-month="{{dateUtil.getChangedDate(displayTime, i).month}}" data-day="{{index + 1 - dateUtil.getDipalyInfo(dateUtil.getChangedDate(displayTime, i).date).beginWeek}}" class="item {{dateUtil.isSelected(selectedDate, dateUtil.getChangedDate(displayTime, i).year, dateUtil.getChangedDate(displayTime, i).month, index + 1 - dateUtil.getDipalyInfo(dateUtil.getChangedDate(displayTime, i).date).beginWeek)}}">
+												<view class="cm-field-title">
+														{{dateUtil.getDayName(dayMap, dateUtil.getChangedDate(displayTime, i).month, index + 1 - dateUtil.getDipalyInfo(dateUtil.getChangedDate(displayTime, i).date).beginWeek) }} {{}}
+												</view>
+										</view>
+								</block>
+								<view class="cm-item--disabled " data-cndate="" data-date=""></view>
+						</view>
+				</view>
+		</block>
+</view>

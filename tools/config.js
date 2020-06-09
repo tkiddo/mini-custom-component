@@ -12,7 +12,7 @@ const dev = path.join(demoDist, 'components')
 const dist = path.resolve(__dirname, '../miniprogram_dist')
 
 module.exports = {
-	entry: ['lt-utils/index','lt-icon/lt-icon','lt-navigator/lt-navigator'],
+	entry: ['lt-utils/index','lt-icon/lt-icon','lt-navigator/lt-navigator','lt-calendar/lt-calendar'],
 
 	isDev,
 	isWatch,

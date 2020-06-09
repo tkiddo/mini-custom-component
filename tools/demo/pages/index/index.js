@@ -1,4 +1,5 @@
 const ltUtils = require('../../components/lt-utils/index')
+let selectedDate = new Date().toString();
 Page({
 	data:{
 		icon:'/assets/icon.png',
@@ -39,7 +40,10 @@ Page({
 			color:'purple',
 			text:'客服',
 			functionType:'contact'
-		}]
+		}],
+		calendarDisplayMonthNum: 1,
+		calendarDisplayTime: selectedDate,
+		calendarSelectedDate: selectedDate,
 	},
 	handleCustom(res){
 		console.log(res.detail)
@@ -55,5 +59,22 @@ Page({
 		}).finally(res=>{
 			console.log('done')
 		})
-	}
+	},
+	handleDayTap: function (e) {
+		const {date} = e.detail;
+		this.setData({
+			calendarSelectedDate: date.toString(),
+			calendarSelectedDateStr: ltUtils.dateUtil.format(date, 'Y年M月D日')
+		});
+	},
+	preMonth: function () {
+		this.setData({
+			calendarDisplayTime: ltUtils.dateUtil.preMonth(this.data.calendarDisplayTime).toString()
+		});
+	},
+	nextMonth: function () {
+		this.setData({
+			calendarDisplayTime: ltUtils.dateUtil.nextMonth(this.data.calendarDisplayTime).toString()
+		});
+	},
 })

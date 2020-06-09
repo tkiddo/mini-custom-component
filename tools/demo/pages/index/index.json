@@ -1,6 +1,7 @@
 {
   "usingComponents": {
 		"lt-icon":"../../components/lt-icon/lt-icon",
-		"lt-navigator":"../../components/lt-navigator/lt-navigator"
+		"lt-navigator":"../../components/lt-navigator/lt-navigator",
+		"lt-calendar":"../../components/lt-calendar/lt-calendar"
   }
 }

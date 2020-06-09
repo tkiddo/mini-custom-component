@@ -196,6 +196,8 @@ function getId() {
   return ++seed
 }
 
+
+
 module.exports = {
   wrap,
   transformPath,
@@ -209,5 +211,6 @@ module.exports = {
   format,
   compareArray,
   merge,
-  getId,
+	getId,
+	
 }
